@@ -97,14 +97,15 @@ p{ font-size: 0.9rem; color:var(--muted); line-height:1.6; }
 .btn-ghost{ background:var(--elev); color:var(--ink); }
 .btn:hover{ transform:translateY(-1px); text-shadow:0 0 6px var(--glow), 0 0 8px var(--glow); }
 
-.hero-image img{
-  width:100%;
-  height:auto;
-  max-height: clamp(240px, 42vh, 420px);  /* smaller cap */
-  object-fit:cover;
-  border:1px solid var(--line);
-  background:var(--panel);
-  box-shadow:0 10px 24px -12px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04) inset;
+.hero-image img {
+  width: 100%;
+  max-width: 300px;                    /* smaller overall size */
+  aspect-ratio: 3 / 4;                 /* Force 3:4 ratio */
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: 0 10px 24px -12px rgba(0,0,0,.5), 
+              0 0 0 1px rgba(255,255,255,.04) inset;
 }
 
 /* ======== ABOUT ======== */
