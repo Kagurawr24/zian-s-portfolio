@@ -180,3 +180,103 @@ html { zoom: 0.8; }
   }
   .site-header { left: 0; right: 0; }
 }
+
+/* ========= MOBILE (phones) ========= */
+@media (max-width: 600px){
+
+  /* Turn off desktop zoom on phones so text stays readable */
+  html { zoom: 1 !important; }
+  @supports not (zoom: 1) {
+    body {
+      transform: none !important;
+      width: 100% !important;
+    }
+  }
+
+  /* Smaller sticky header with safe-area for notches */
+  :root{ --header-h: 52px; }
+  .site-header{
+    padding-top: env(safe-area-inset-top);
+  }
+
+  /* Compact nav */
+  .nav ul{ gap: 14px; }
+  .nav a{
+    font-size: 0.95rem;
+    padding: 6px 8px;
+    border-radius: 6px;
+  }
+
+  /* Sections: don’t force full viewport height on phones
+     (avoids fighting the mobile browser chrome) */
+  .section{
+    min-height: auto;
+    padding: 28px 0 36px;
+  }
+
+  /* HERO: stack, center, and tighten spacing */
+  .home.section{ padding: 0; }
+  .home .container{
+    grid-template-columns: 1fr;
+    gap: 18px;
+    justify-items: center;
+    align-items: start;
+    padding-top: 16px;
+  }
+
+  /* Headings & copy: slightly smaller */
+  h1{ font-size: clamp(22px, 6vw, 28px); }
+  h2{ font-size: clamp(18px, 4.8vw, 22px); }
+  .subhead{ font-size: clamp(15px, 4.2vw, 19px); }
+  p, .lede{ font-size: 0.95rem; line-height: 1.6; }
+
+  /* Hero image: keep 3:4, scale to viewport width */
+  .hero-image{ width: 100%; }
+  .hero-image img{
+    max-width: 68vw;       /* portrait that breathes */
+    aspect-ratio: 3 / 4;
+  }
+
+  /* CTA buttons: easy to tap */
+  .cta-row{
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+  }
+  .btn{
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+
+  /* ABOUT: single column, reduce media height */
+  .split{ grid-template-columns: 1fr; gap: 18px; }
+  .about-video{ max-height: 260px; }
+
+  /* CONTACT: left aligned list, comfy spacing */
+  .contact.section{ align-items: flex-start; }
+  .contact .contact-list{
+    gap: 10px;
+    margin: 12px 0 0;
+  }
+  .contact .contact-list li a{
+    height: 42px;
+    padding: 0 12px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+  .contact .contact-list i{ font-size: 1.05rem; }
+
+  /* Footer: compact */
+  .site-footer{
+    padding: 8px 0;
+    font-size: 0.85rem;
+  }
+}
+
+/* ========= SMALL TABLETS (optional) ========= */
+@media (min-width: 601px) and (max-width: 900px){
+  :root{ --header-h: 56px; }
+  .section{ min-height: auto; padding: 36px 0 44px; }
+  .home .container{ grid-template-columns: 1fr; justify-items: center; }
+  .hero-image img{ max-width: 360px; }
+}
